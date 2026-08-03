@@ -1,2 +1,805 @@
 # languagespace
 site of school to study foreign laguages
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lingua School — Школа иностранных языков</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #172033;
+            background: #f7f9fc;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+        }
+
+        /* HEADER */
+
+        header {
+            background: white;
+            border-bottom: 1px solid #e8ebf0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #3454d1;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #4c5568;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #3454d1;
+        }
+
+        .login-btn {
+            background: #3454d1;
+            color: white;
+            padding: 11px 20px;
+            border-radius: 10px;
+        }
+
+        /* HERO */
+
+        .hero {
+            max-width: 1200px;
+            margin: auto;
+            padding: 90px 25px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 54px;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #3454d1;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: #606a7c;
+            max-width: 600px;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .primary-btn {
+            background: #3454d1;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .secondary-btn {
+            background: white;
+            color: #3454d1;
+            border: 1px solid #dce1eb;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .hero-card {
+            background: white;
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(35, 48, 80, 0.1);
+        }
+
+        .progress {
+            background: #edf0f5;
+            height: 10px;
+            border-radius: 20px;
+            margin: 15px 0 25px;
+            overflow: hidden;
+        }
+
+        .progress div {
+            width: 72%;
+            height: 100%;
+            background: #3454d1;
+        }
+
+        .lesson {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 80px 25px;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+        }
+
+        /* FEATURES */
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feature {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            border: 1px solid #e9edf3;
+        }
+
+        .feature-icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: #687185;
+        }
+
+        /* COURSES */
+
+        .courses {
+            background: white;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .course {
+            border: 1px solid #e5e9f0;
+            border-radius: 18px;
+            padding: 30px;
+            background: #fff;
+        }
+
+        .course h3 {
+            margin-bottom: 12px;
+        }
+
+        .course p {
+            color: #687185;
+            margin-bottom: 20px;
+        }
+
+        .course-btn {
+            display: inline-block;
+            color: #3454d1;
+            font-weight: bold;
+        }
+
+        /* HOW IT WORKS */
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 55px;
+            height: 55px;
+            margin: auto auto 20px;
+            border-radius: 50%;
+            background: #3454d1;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* CTA */
+
+        .cta {
+            background: #172033;
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            color: #c5cad5;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #101522;
+            color: #aeb5c3;
+            padding: 35px 25px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* MODAL */
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            width: 100%;
+            max-width: 420px;
+            padding: 35px;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .modal-content h2 {
+            margin-bottom: 25px;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 15px;
+            border: 1px solid #dce1e8;
+            border-radius: 8px;
+        }
+
+        .modal-content button {
+            width: 100%;
+            padding: 14px;
+            background: #3454d1;
+            color: white;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 60px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .features,
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons a {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+    <div class="header-container">
+
+        <div class="logo">
+            Lingua School
+        </div>
+
+        <nav>
+            <a href="#about">О школе</a>
+            <a href="#courses">Курсы</a>
+            <a href="#features">Возможности</a>
+            <a href="#how">Как это работает</a>
+        </nav>
+
+        <button class="login-btn" onclick="openModal()">
+            Войти
+        </button>
+
+    </div>
+</header>
+
+
+<!-- HERO -->
+
+<main>
+
+<section class="hero">
+
+    <div>
+
+        <h1>
+            Учите язык.<br>
+            <span>Говорите свободно.</span>
+        </h1>
+
+        <p>
+            Онлайн-школа иностранных языков с живыми занятиями,
+            интерактивными заданиями, домашней работой и
+            отслеживанием прогресса.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#courses" class="primary-btn">
+                Выбрать курс
+            </a>
+
+            <a href="#how" class="secondary-btn">
+                Как это работает
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-card">
+
+        <h3>Ваш прогресс</h3>
+
+        <p>Английский язык — уровень B1</p>
+
+        <div class="progress">
+            <div></div>
+        </div>
+
+        <strong>72% курса завершено</strong>
+
+        <div class="lesson">
+            <span>Домашнее задание</span>
+            <span>✓</span>
+        </div>
+
+        <div class="lesson">
+            <span>Дополнительный тренажёр</span>
+            <span>✓</span>
+        </div>
+
+        <div class="lesson">
+            <span>Тест</span>
+            <span>→</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="section-container">
+
+        <h2 class="section-title">
+            Всё необходимое для изучения языка
+        </h2>
+
+        <div class="features" id="features">
+
+            <div class="feature">
+
+                <div class="feature-icon">📚</div>
+
+                <h3>Домашние задания</h3>
+
+                <p>
+                    Получайте задания после урока и выполняйте
+                    их прямо в личном кабинете.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">⚡</div>
+
+                <h3>Автоматическая проверка</h3>
+
+                <p>
+                    Система проверяет упражнения и сразу
+                    показывает результат.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">📈</div>
+
+                <h3>Ваш прогресс</h3>
+
+                <p>
+                    Следите за результатами, баллами,
+                    выполненными заданиями и уровнем языка.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- COURSES -->
+
+<section class="courses" id="courses">
+
+    <div class="section-container">
+
+        <h2 class="section-title">
+            Наши направления
+        </h2>
+
+        <div class="course-grid">
+
+            <div class="course">
+
+                <h3>🇬🇧 Английский язык</h3>
+
+                <p>
+                    Разговорная практика, грамматика,
+                    чтение, аудирование и произношение.
+                </p>
+
+                <a href="#" class="course-btn">
+                    Подробнее →
+                </a>
+
+            </div>
+
+
+            <div class="course">
+
+                <h3>🇪🇸 Испанский язык</h3>
+
+                <p>
+                    Изучение испанского языка с нуля
+                    до уверенного общения.
+                </p>
+
+                <a href="#" class="course-btn">
+                    Подробнее →
+                </a>
+
+            </div>
+
+
+            <div class="course">
+
+                <h3>🇫🇷 Французский язык</h3>
+
+                <p>
+                    Практический французский для жизни,
+                    путешествий и обучения.
+                </p>
+
+                <a href="#" class="course-btn">
+                    Подробнее →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- HOW -->
+
+<section id="how">
+
+    <div class="section-container">
+
+        <h2 class="section-title">
+            Как проходит обучение
+        </h2>
+
+        <div class="steps">
+
+            <div class="step">
+
+                <div class="step-number">1</div>
+
+                <h3>Регистрация</h3>
+
+                <p>
+                    Создайте личный кабинет ученика.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">2</div>
+
+                <h3>Урок</h3>
+
+                <p>
+                    Занимайтесь с преподавателем онлайн.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">3</div>
+
+                <h3>Практика</h3>
+
+                <p>
+                    Выполняйте домашние задания и тренажёры.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">4</div>
+
+                <h3>Результат</h3>
+
+                <p>
+                    Отслеживайте свой прогресс и развивайтесь.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+    <div class="section-container">
+
+        <h2>
+            Готовы начать?
+        </h2>
+
+        <p>
+            Зарегистрируйтесь и начните изучать иностранный
+            язык уже сегодня.
+        </p>
+
+        <button class="primary-btn" onclick="openModal()">
+            Создать аккаунт
+        </button>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-container">
+
+        <div>
+            © 2026 Lingua School
+        </div>
+
+        <div>
+            Онлайн-школа иностранных языков
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- LOGIN MODAL -->
+
+<div class="modal" id="loginModal">
+
+    <div class="modal-content">
+
+        <span class="close" onclick="closeModal()">
+            ×
+        </span>
+
+        <h2>
+            Вход в личный кабинет
+        </h2>
+
+        <form onsubmit="login(event)">
+
+            <input
+                type="email"
+                placeholder="Email"
+                required
+            >
+
+            <input
+                type="password"
+                placeholder="Пароль"
+                required
+            >
+
+            <button type="submit">
+                Войти
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    function openModal() {
+        document
+            .getElementById("loginModal")
+            .classList.add("active");
+    }
+
+    function closeModal() {
+        document
+            .getElementById("loginModal")
+            .classList.remove("active");
+    }
+
+    function login(event) {
+
+        event.preventDefault();
+
+        alert(
+            "Демонстрационная версия. " +
+            "Система авторизации будет подключена на следующем этапе."
+        );
+
+        closeModal();
+    }
+
+</script>
+
+</body>
+</html>
